@@ -8,6 +8,7 @@
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
+#include "Objects.h"
 
 class GameSystem
 {
@@ -24,6 +25,7 @@ public:
 	virtual void ShutDown() const;
 	void CapFPS();
 	void Loop();
+	void Draw(Objects O);
 private:
 	const int FPS = 60;
 	Uint32 FrameStart;

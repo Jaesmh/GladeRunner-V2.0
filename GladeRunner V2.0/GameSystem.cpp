@@ -92,7 +92,15 @@ void GameSystem::Loop()
 {
 	while (_IsClosed == false)
 	{
+		CapFPS();
 		Render();
 		PollEvents();
 	}
+}
+
+void GameSystem::Draw(Objects O)
+{
+	SDL_Rect dest = O.GetDest();
+	SDL_Rect src = O.GetSource();
+	SDL_RenderCopy(Renderer, O.GetTex(), &src, &dest);
 }

@@ -12,8 +12,12 @@ private:
 public:
 	Objects();
 	~Objects();
-	SDL_Rect GetDest() const { return dest; }
-	SDL_Rect GetSource() const { return src; }
+	inline SDL_Rect GetDest() const { return dest; }
+	inline SDL_Rect GetSource() const { return src; }
+	inline SDL_Texture* GetTex() const { return tex; }
+	void SetDest(int x, int y, int w, int h);
+	void SetSource(int x, int y, int w, int h);
+	void SetImage(std::string file_path, SDL_Renderer* Renderer);
 };
 
 #endif //OBJECTS_H
