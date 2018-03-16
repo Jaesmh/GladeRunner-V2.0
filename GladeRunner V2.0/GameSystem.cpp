@@ -14,7 +14,7 @@ GameSystem::GameSystem()
 		ShutDown();
 	}
 
-	else if (!IMGFlag & IMG_Init(IMGFlag) == -1)
+	else if (IMG_Init(IMGFlag) == -1)
 	{
 		std::cerr << "SDL_Image was unable to initialize correctly... | Error: " << SDL_GetError() << std::endl;
 		ShutDown();
@@ -96,6 +96,18 @@ void GameSystem::Loop()
 		Render();
 		PollEvents();
 	}
+}
+
+void GameSystem::Draw(const char* Message, int x, int y, int r, int g, int b, int size)
+{
+	SDL_Surface* surf;
+	SDL_Texture* tex;
+	TTF_Font* font = TTF_OpenFont("Moon.ttf", size);
+	SDL_Color Color{ r,g,b, 255};
+	SDL_Rect rect{x,y,surf->}
+	surf = TTF_RenderText_Blended(font, Message, Color);
+	tex = SDL_CreateTextureFromSurface(Renderer, surf);
+
 }
 
 void GameSystem::Draw(Objects O)

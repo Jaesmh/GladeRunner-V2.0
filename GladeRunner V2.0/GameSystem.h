@@ -25,6 +25,7 @@ public:
 	virtual void ShutDown() const;
 	void CapFPS();
 	void Loop();
+	void Draw(const char* Message, int x, int y, int r, int g, int b, int size);
 	void Draw(Objects O);
 private:
 	const int FPS = 60;
