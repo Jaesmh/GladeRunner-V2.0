@@ -31,6 +31,7 @@ GameSystem::GameSystem()
 		SDL_CreateWindowAndRenderer(540, 540, NULL, &Window, &Renderer);
 		SDL_SetWindowTitle(Window, "GladeRunner");
 		_IsClosed = false;
+		GameLoop(); //Begin the game loop
 	}
 }
 
@@ -76,6 +77,7 @@ void GameSystem::ShutDown() const
 	TTF_Quit();
 	IMG_Quit();
 	SDL_Quit();
+	exit(-1);
 }
 
 void GameSystem::CapFPS()
@@ -88,7 +90,7 @@ void GameSystem::CapFPS()
 	}
 }
 
-void GameSystem::Loop()
+void GameSystem::GameLoop()
 {
 	while (_IsClosed == false)
 	{
@@ -96,18 +98,23 @@ void GameSystem::Loop()
 		Render();
 		PollEvents();
 	}
+
+	ShutDown();
 }
 
-void GameSystem::Draw(const char* Message, int x, int y, int r, int g, int b, int size)
+void GameSystem::Draw(const char * Msg, int x, int y, int r, int g, int b, int a, int Size)
 {
-	SDL_Surface* surf;
-	SDL_Texture* tex;
-	TTF_Font* font = TTF_OpenFont("Moon.ttf", size);
-	SDL_Color Color{ r,g,b, 255};
-	SDL_Rect rect{x,y,surf->}
-	surf = TTF_RenderText_Blended(font, Message, Color);
-	tex = SDL_CreateTextureFromSurface(Renderer, surf);
-
+	SDL_Surface* TempSurface;
+	SDL_Texture* TempTexture;
+	TTF_Font* Font = TTF_OpenFont("Assets/Fonts/Moon.ttf", Size);
+	SDL_Color TextColor = {r, g, b, a };
+	SDL_Rect TextRect;
+	TempSurface = TTF_RenderText_Blended(Font, Msg, TextColor);
+	TempTexture = SDL_CreateTextureFromSurface(Renderer, TempSurface);
+	TextRect = { x,y,TempSurface->w, TempSurface->h };
+	SDL_FreeSurface(TempSurface);
+	SDL_RenderCopy(Renderer, TempTexture, nullptr, &TextRect);
+	SDL_DestroyTexture(TempTexture);
 }
 
 void GameSystem::Draw(Objects O)

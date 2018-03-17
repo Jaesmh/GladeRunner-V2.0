@@ -1,7 +1,9 @@
 #ifndef OBJECTS_H
 #define OBJECTS_H
 
-#include "GameSystem.h"
+#include <string>
+#include <SDL.h>
+#include <SDL_image.h>
 
 class Objects
 {
@@ -10,8 +12,7 @@ private:
 	SDL_Rect src;
 	SDL_Texture* tex;
 public:
-	Objects();
-	~Objects();
+	Objects(){}
 	inline SDL_Rect GetDest() const { return dest; }
 	inline SDL_Rect GetSource() const { return src; }
 	inline SDL_Texture* GetTex() const { return tex; }

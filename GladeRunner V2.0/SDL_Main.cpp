@@ -10,8 +10,5 @@ int main(int argc, char **argv)
 {
 
 	GameSystem *GameSys = new GameSystem();
-
-	GameSys->Loop();
-
 	return 0;
 }

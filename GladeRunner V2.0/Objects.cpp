@@ -1,14 +1,5 @@
 #include "Objects.h"
 
-Objects::Objects()
-{
-}
-
-
-Objects::~Objects()
-{
-}
-
 void Objects::SetDest(int x, int y, int w, int h)
 {
 	dest.x = x;
