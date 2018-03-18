@@ -114,12 +114,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameSystem.cpp" />
+    <ClCompile Include="LAudio.cpp" />
     <ClCompile Include="Objects.cpp" />
     <ClCompile Include="SDL_Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="GameSystem.h" />
+    <ClInclude Include="LAudio.h" />
     <ClInclude Include="Objects.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

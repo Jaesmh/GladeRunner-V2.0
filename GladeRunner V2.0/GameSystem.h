@@ -9,6 +9,8 @@
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
 #include "Objects.h"
+#include "LAudio.h"
+#include "Entity.h"
 
 class GameSystem
 {
@@ -19,11 +21,14 @@ protected:
 public:
 	GameSystem();
 	~GameSystem();
+	void LoadMap(const char* file_path);
+	void DrawMap();
 	inline bool IsClosed() { return _IsClosed; }
-	virtual void PollEvents();
+	void PollEvents();
 	void Render() const;
 	virtual void ShutDown() const;
 	void CapFPS();
+	void Update();
 	void GameLoop();
 	void Draw(const char* Msg, int x, int y, int r, int g, int b, int a, int Size);
 	void Draw(Objects O);

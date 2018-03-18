@@ -46,6 +46,16 @@ GameSystem::~GameSystem()
 	atexit(SDL_Quit);
 }
 
+void GameSystem::LoadMap(const char * file_path)
+{
+
+}
+
+void GameSystem::DrawMap()
+{
+	
+}
+
 void GameSystem::PollEvents()
 {
 	while (SDL_PollEvent(&Event))
@@ -90,6 +100,11 @@ void GameSystem::CapFPS()
 	}
 }
 
+void GameSystem::Update()
+{
+
+}
+
 void GameSystem::GameLoop()
 {
 	while (_IsClosed == false)
@@ -97,6 +112,7 @@ void GameSystem::GameLoop()
 		CapFPS();
 		Render();
 		PollEvents();
+		Update();
 	}
 
 	ShutDown();
